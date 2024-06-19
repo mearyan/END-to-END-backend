@@ -1,12 +1,5 @@
 ## Create a course selling website
 
-### Description
-
-Same as the last assignment but you need to use jwts for authentication.
-We have introduced the signgin endpoints for both users and admins.
-For this one, in every authenticated requests, you need to send the jwt in headers (Authorization : "Bearer <actual token>").
-You need to use mongodb to store all the data persistently.
-
 ## Routes
 
 ### Admin Routes:
@@ -21,12 +14,12 @@ You need to use mongodb to store all the data persistently.
   Output: { token: 'your-token' }
 - POST /admin/courses
   Description: Creates a new course.
-  Input: Headers: { 'Authorization': 'Bearer <your-token>' }, Body: { title: 'course title', description: 'course description', price: 100, imageLink: 'https://linktoimage.com' }
+  Input: Headers: { 'Authorization': 'Bearer <your-token>' }, Body: { title: 'course title', description: 'course description', price: 100,}
   Output: { message: 'Course created successfully', courseId: "new course id" }
 - GET /admin/courses
   Description: Returns all the courses.
   Input: Headers: { 'Authorization': 'Bearer <your-token>' }
-  Output: { courses: [ { id: 1, title: 'course title', description: 'course description', price: 100, imageLink: 'https://linktoimage.com', published: true }, ... ] }
+  Output: { courses: [ { id: 1, title: 'course title', description: 'course description', price: 100, , published: true }, ... ] }
 
 ### User routes
 
@@ -41,7 +34,7 @@ You need to use mongodb to store all the data persistently.
 - GET /users/courses
   Description: Lists all the courses.
   Input: Headers: { 'Authorization': 'Bearer <your-token>' }
-  Output: { courses: [ { id: 1, title: 'course title', description: 'course description', price: 100, imageLink: 'https://linktoimage.com', published: true }, ... ] }
+  Output: { courses: [ { id: 1, title: 'course title', description: 'course description', price: 100, published: true }, ... ] }
 - POST /users/courses/:courseId
   Description: Purchases a course. courseId in the URL path should be replaced with the ID of the course to be purchased.
   Input: Headers: { 'Authorization': 'Bearer <your-token>' }
@@ -49,4 +42,4 @@ You need to use mongodb to store all the data persistently.
 - GET /users/purchasedCourses
   Description: Lists all the courses purchased by the user.
   Input: Headers: { 'Authorization': 'Bearer <your-token>' }
-  Output: { purchasedCourses: [ { id: 1, title: 'course title', description: 'course description', price: 100, imageLink: 'https://linktoimage.com', published: true }, ... ] }
+  Output: { purchasedCourses: [ { id: 1, title: 'course title', description: 'course description', price: 100,published: true }, ... ] }
